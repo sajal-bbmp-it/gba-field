@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  TEMPORARY WORKAROUND: gisapi.bbmp.gov.in serves an incomplete TLS chain (leaf
+  only, no GoDaddy "Secure Certificate Authority - G2" intermediate). okhttp does
+  not fetch missing intermediates, so every request fails with "Network Error".
+  We trust the system CAs PLUS that one intermediate; full validation still runs.
+
+  REMOVE once the server serves the full chain: delete this file,
+  res/raw/godaddy_g2.crt and android:networkSecurityConfig in AndroidManifest.xml.
+
+  Cleartext stays permitted for the Metro dev server and local/LAN API targets.
+-->
+<network-security-config>
+  <base-config cleartextTrafficPermitted="true">
+    <trust-anchors>
+      <certificates src="system" />
+      <certificates src="@raw/godaddy_g2" />
+    </trust-anchors>
+  </base-config>
+</network-security-config>

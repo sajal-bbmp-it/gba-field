@@ -1,0 +1,48 @@
+import { StyleSheet } from 'react-native';
+import { colors } from '../../theme';
+
+export const styles = StyleSheet.create({
+  screen: { flex: 1, backgroundColor: colors.bg },
+  content: { padding: 14 },
+  card: {
+    backgroundColor: colors.card,
+    borderRadius: 12,
+    padding: 16,
+    marginBottom: 12,
+    borderWidth: 1,
+    borderColor: colors.border,
+  },
+  name: { fontSize: 20, fontWeight: '700', color: colors.text },
+  rowWrap: { flexDirection: 'row', alignItems: 'center', flexWrap: 'wrap', marginTop: 6, gap: 8 },
+  roleBadge: {
+    backgroundColor: colors.brand,
+    color: colors.white,
+    fontSize: 11,
+    fontWeight: '700',
+    paddingHorizontal: 8,
+    paddingVertical: 2,
+    borderRadius: 20,
+    overflow: 'hidden',
+  },
+  juris: { color: colors.muted, flexShrink: 1 },
+  cardTitle: { fontSize: 16, fontWeight: '700', color: colors.text, marginBottom: 8 },
+  muted: { color: colors.muted },
+  status: { color: colors.text, lineHeight: 22 },
+  btn: { backgroundColor: colors.brand, paddingVertical: 13, borderRadius: 10, alignItems: 'center', marginTop: 14 },
+  btnText: { color: colors.white, fontWeight: '700', fontSize: 15 },
+  grid: { flexDirection: 'row', gap: 12, marginBottom: 12 },
+  tile: {
+    flex: 1,
+    backgroundColor: colors.card,
+    borderRadius: 12,
+    padding: 18,
+    alignItems: 'center',
+    borderWidth: 1,
+    borderColor: colors.border,
+  },
+  tileIcon: { fontSize: 26 },
+  tileText: { marginTop: 6, fontWeight: '600', color: colors.text },
+  logout: { padding: 14, alignItems: 'center' },
+  logoutText: { color: colors.danger, fontWeight: '700' },
+  error: { color: colors.danger, backgroundColor: colors.dangerBg, padding: 10, borderRadius: 8, marginBottom: 12 },
+});
