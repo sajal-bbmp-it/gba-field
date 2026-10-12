@@ -1,5 +1,6 @@
 import React from 'react';
 import { RefreshControl, Text, TouchableOpacity } from 'react-native';
+import ErrorMessage from '../../components/ErrorMessage';
 import KeyboardAwareScroll from '../../components/KeyboardAwareScroll';
 import Loading from '../../components/Loading';
 import NewWork from './NewWork';
@@ -29,7 +30,7 @@ export default function WorksScreen() {
       <TouchableOpacity style={styles.btn} onPress={startCreate}>
         <Text style={styles.btnText}>＋ New Work</Text>
       </TouchableOpacity>
-      {!!error && <Text style={styles.error}>{error}</Text>}
+      <ErrorMessage message={error} style={styles.errorSpacing} />
       {list.length === 0 ? (
         <Text style={styles.empty}>No works assigned to you yet.</Text>
       ) : (

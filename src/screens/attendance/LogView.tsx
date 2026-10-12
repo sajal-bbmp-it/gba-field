@@ -1,6 +1,7 @@
 import React from 'react';
 import { ScrollView, Text, View } from 'react-native';
 import Dropdown from '../../components/Dropdown';
+import ErrorMessage from '../../components/ErrorMessage';
 import Loading from '../../components/Loading';
 import { styles } from './attendance.styles';
 import DayCard from './DayCard';
@@ -39,7 +40,7 @@ export default function LogView() {
         </View>
       </View>
 
-      {!!error && <Text style={styles.error}>{error}</Text>}
+      <ErrorMessage message={error} />
       {loading ? (
         <Loading label="Loading log…" />
       ) : days.length === 0 ? (

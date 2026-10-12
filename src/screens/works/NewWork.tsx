@@ -2,6 +2,7 @@ import React from 'react';
 import { Text, TextInput, TouchableOpacity, View } from 'react-native';
 import CameraCapture from '../../components/CameraCapture';
 import ChipGroup from '../../components/ChipGroup';
+import ErrorMessage from '../../components/ErrorMessage';
 import KeyboardAwareScroll from '../../components/KeyboardAwareScroll';
 import { formatCoords } from '../../utils/validation';
 import { useNewWork } from './useNewWork';
@@ -21,8 +22,8 @@ export default function NewWork({ onCancel, onSaved }: Props) {
         <Text style={styles.link}>← Back to works</Text>
       </TouchableOpacity>
       <Text style={styles.title}>New Work</Text>
-      {!!f.error && <Text style={styles.error}>{f.error}</Text>}
-      {!!f.catsError && <Text style={styles.error}>{f.catsError}</Text>}
+      <ErrorMessage message={f.error} style={styles.errorSpacing} />
+      <ErrorMessage message={f.catsError} style={styles.errorSpacing} />
 
       <View style={styles.card}>
         <Text style={styles.label}>Title *</Text>

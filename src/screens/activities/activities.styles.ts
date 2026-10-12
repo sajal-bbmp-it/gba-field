@@ -74,5 +74,4 @@ export const styles = StyleSheet.create({
   btnText: { color: colors.white, fontWeight: '700', fontSize: 15 },
   mt8: { marginTop: 8 },
   mt12: { marginTop: 12 },
-  error: { color: colors.danger, backgroundColor: colors.dangerBg, padding: 10, borderRadius: 8, marginBottom: 12 },
 });

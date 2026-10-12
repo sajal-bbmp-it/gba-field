@@ -1,6 +1,7 @@
 import React from 'react';
 import { Text, TextInput, TouchableOpacity, View } from 'react-native';
 import CameraCapture from '../../components/CameraCapture';
+import ErrorMessage from '../../components/ErrorMessage';
 import KeyboardAwareScroll from '../../components/KeyboardAwareScroll';
 import WardMapWebView from '../../components/WardMapWebView';
 import { styles } from './attendance.styles';
@@ -19,7 +20,7 @@ export default function CheckWizard({ mode, onCancel, onDone }: Props) {
   return (
     <KeyboardAwareScroll>
       <Text style={styles.title}>{w.isCheckIn ? 'Check In' : 'Check Out'}</Text>
-      {!!w.error && <Text style={styles.error}>{w.error}</Text>}
+      <ErrorMessage message={w.error} />
 
       {w.step === 'selfie' ? (
         <View style={styles.card}>
@@ -66,10 +67,13 @@ export default function CheckWizard({ mode, onCancel, onDone }: Props) {
           </View>
 
           {w.mocked && (
-            <Text style={styles.warn}>
-              A fake / mock GPS location was detected. Turn off any fake-location app and disable "mock location" in
-              developer settings, then tap Refresh.
-            </Text>
+            <ErrorMessage
+              style={styles.warn}
+              message={
+                'A fake / mock GPS location was detected. Turn off any fake-location app and disable "mock location" ' +
+                'in developer settings, then tap Refresh.'
+              }
+            />
           )}
 
           <TouchableOpacity onPress={w.fetchLocation} disabled={w.locating}>
@@ -77,10 +81,13 @@ export default function CheckWizard({ mode, onCancel, onDone }: Props) {
           </TouchableOpacity>
 
           {w.poorAccuracy && w.coords && (
-            <Text style={styles.warn}>
-              GPS accuracy is too weak (±{Math.round(w.coords.accuracy)} m); it must be within {Math.round(w.accLimit)} m.
-              Move to an open area and tap Refresh.
-            </Text>
+            <ErrorMessage
+              style={styles.warn}
+              message={
+                `GPS accuracy is too weak (±${Math.round(w.coords.accuracy)} m); it must be within ` +
+                `${Math.round(w.accLimit)} m. Move to an open area and tap Refresh.`
+              }
+            />
           )}
           {w.needRemarks && (
             <View style={styles.remarksBlock}>

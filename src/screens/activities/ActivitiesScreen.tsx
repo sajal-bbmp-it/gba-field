@@ -1,5 +1,6 @@
 import React from 'react';
 import { RefreshControl, Text, TouchableOpacity, View } from 'react-native';
+import ErrorMessage from '../../components/ErrorMessage';
 import KeyboardAwareScroll from '../../components/KeyboardAwareScroll';
 import Loading from '../../components/Loading';
 import { styles } from './activities.styles';
@@ -22,7 +23,7 @@ export default function ActivitiesScreen() {
       <TouchableOpacity style={styles.btn} onPress={startCreate}>
         <Text style={styles.btnText}>＋ Log Activity</Text>
       </TouchableOpacity>
-      {!!error && <Text style={styles.error}>{error}</Text>}
+      <ErrorMessage message={error} />
       {items.length === 0 ? (
         <Text style={styles.empty}>No activities logged yet.</Text>
       ) : (

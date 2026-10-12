@@ -2,6 +2,7 @@ import React from 'react';
 import { Image, Text, TextInput, TouchableOpacity, View } from 'react-native';
 import CameraCapture from '../../components/CameraCapture';
 import ChipGroup from '../../components/ChipGroup';
+import ErrorMessage from '../../components/ErrorMessage';
 import KeyboardAwareScroll from '../../components/KeyboardAwareScroll';
 import type { Work } from '../../types/models';
 import LocationPanel from './LocationPanel';
@@ -58,7 +59,7 @@ export default function WorkDetail({ work, catName, onBack, onChanged }: Props) 
             onChangeText={d.setEDesc}
             placeholder="Describe the work…"
           />
-          {!!d.error && <Text style={styles.error}>{d.error}</Text>}
+          <ErrorMessage message={d.error} style={styles.errorSpacing} />
           <View style={styles.actions}>
             <TouchableOpacity style={[styles.btn, styles.ghost]} onPress={d.cancelEdit}>
               <Text style={[styles.btnText, styles.ghostText]}>Cancel</Text>
@@ -93,7 +94,7 @@ export default function WorkDetail({ work, catName, onBack, onChanged }: Props) 
 
       {d.isOpen && (
         <>
-          {!!d.error && <Text style={styles.error}>{d.error}</Text>}
+          <ErrorMessage message={d.error} style={styles.errorSpacing} />
           <TouchableOpacity style={styles.btn} onPress={d.claim} disabled={d.busy}>
             <Text style={styles.btnText}>{d.busy ? 'Taking up…' : '✋ Take up this work'}</Text>
           </TouchableOpacity>
@@ -148,7 +149,7 @@ export default function WorkDetail({ work, catName, onBack, onChanged }: Props) 
             onChangeText={d.setRemarks}
             placeholder="What was completed…"
           />
-          {!!d.error && <Text style={styles.error}>{d.error}</Text>}
+          <ErrorMessage message={d.error} style={styles.errorSpacing} />
           <View style={styles.actions}>
             <TouchableOpacity style={[styles.btn, styles.ghost]} onPress={d.cancelClosing}>
               <Text style={[styles.btnText, styles.ghostText]}>Cancel</Text>
@@ -159,7 +160,7 @@ export default function WorkDetail({ work, catName, onBack, onChanged }: Props) 
           </View>
         </View>
       )}
-      {d.isOwner && !!d.error && !d.closing && !d.editing && <Text style={styles.error}>{d.error}</Text>}
+      {d.isOwner && !d.closing && !d.editing && <ErrorMessage message={d.error} style={styles.errorSpacing} />}
     </KeyboardAwareScroll>
   );
 }

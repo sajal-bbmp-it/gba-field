@@ -1,5 +1,6 @@
 import React from 'react';
 import { ScrollView, Text, TouchableOpacity, View } from 'react-native';
+import ErrorMessage from '../../components/ErrorMessage';
 import Loading from '../../components/Loading';
 import { styles } from './attendance.styles';
 import { checkedInText, completedText } from './attendance.utils';
@@ -22,7 +23,7 @@ export default function MarkView() {
 
   return (
     <ScrollView style={styles.screen} contentContainerStyle={styles.screenContent}>
-      {!!error && <Text style={styles.error}>{error}</Text>}
+      <ErrorMessage message={error} />
       <View style={styles.card}>
         <Text style={styles.cardTitle}>Today — {today}</Text>
         {!rec || !checkedIn ? (

@@ -108,7 +108,7 @@ export const styles = StyleSheet.create({
   badgeOk: { backgroundColor: colors.ok },
   badgeDanger: { backgroundColor: colors.danger },
   link: { color: colors.brandLight, marginTop: 10, fontWeight: '600' },
-  warn: { color: colors.danger, backgroundColor: colors.dangerBg, padding: 10, borderRadius: 8, marginTop: 10 },
+  warn: { marginTop: 10, marginBottom: 0 },
   remarksBlock: { marginTop: 10 },
   label: { color: colors.text, fontWeight: '600', marginBottom: 6 },
   textarea: {
@@ -129,5 +129,4 @@ export const styles = StyleSheet.create({
   ghost: { backgroundColor: colors.ghost },
   ghostText: { color: colors.brand },
   btnText: { color: colors.white, fontWeight: '700', fontSize: 15 },
-  error: { color: colors.danger, backgroundColor: colors.dangerBg, padding: 10, borderRadius: 8, marginBottom: 12 },
 });

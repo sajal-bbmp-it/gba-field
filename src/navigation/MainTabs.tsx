@@ -11,13 +11,15 @@ import type { MainTabParamList } from './types';
 
 const Tab = createBottomTabNavigator<MainTabParamList>();
 
+const headerRight = () => <BuildWatermark />;
+
 export default function MainTabs() {
   return (
     <Tab.Navigator
       screenOptions={{
         headerStyle: { backgroundColor: colors.brand },
         headerTintColor: colors.white,
-        headerRight: () => <BuildWatermark />,
+        headerRight,
         tabBarActiveTintColor: colors.brand,
       }}>
       <Tab.Screen name="Home" component={HomeScreen} options={{ tabBarIcon: tabIcon('🏠') }} />

@@ -19,9 +19,11 @@ export const styles = StyleSheet.create({
     marginBottom: 16,
     color: colors.text,
   },
+  inputError: { borderColor: colors.danger, marginBottom: 8 },
+  // Error under the input, with the input's usual gap before the button.
+  fieldError: { marginBottom: 16 },
   btn: { backgroundColor: colors.brand, paddingVertical: 14, borderRadius: 10, alignItems: 'center' },
   btnText: { color: colors.white, fontWeight: '700', fontSize: 16 },
   linkText: { color: colors.brandLight, textAlign: 'center', marginTop: 16 },
-  error: { color: colors.danger, backgroundColor: colors.dangerBg, padding: 10, borderRadius: 8, marginBottom: 12 },
   info: { color: colors.info, backgroundColor: colors.infoBg, padding: 10, borderRadius: 8, marginBottom: 12 },
 });

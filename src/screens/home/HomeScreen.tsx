@@ -1,5 +1,6 @@
 import React from 'react';
 import { RefreshControl, ScrollView, Text, TouchableOpacity, View } from 'react-native';
+import ErrorMessage from '../../components/ErrorMessage';
 import { styles } from './home.styles';
 import { useHome } from './useHome';
 
@@ -22,7 +23,7 @@ export default function HomeScreen() {
         </View>
       </View>
 
-      {!!error && <Text style={styles.error}>{error}</Text>}
+      <ErrorMessage message={error} />
 
       <View style={styles.card}>
         <Text style={styles.cardTitle}>Today's Attendance</Text>

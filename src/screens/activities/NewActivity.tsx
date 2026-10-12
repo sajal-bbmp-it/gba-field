@@ -2,6 +2,7 @@ import React from 'react';
 import { Text, TextInput, TouchableOpacity, View } from 'react-native';
 import CameraCapture from '../../components/CameraCapture';
 import ChipGroup from '../../components/ChipGroup';
+import ErrorMessage from '../../components/ErrorMessage';
 import KeyboardAwareScroll from '../../components/KeyboardAwareScroll';
 import { formatCoords } from '../../utils/validation';
 import { styles } from './activities.styles';
@@ -18,7 +19,7 @@ export default function NewActivity({ onCancel, onSaved }: Props) {
   return (
     <KeyboardAwareScroll>
       <Text style={styles.title}>Log Field Activity</Text>
-      {!!f.error && <Text style={styles.error}>{f.error}</Text>}
+      <ErrorMessage message={f.error} />
 
       <View style={styles.card}>
         <Text style={styles.label}>Category</Text>

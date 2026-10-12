@@ -44,5 +44,4 @@ export const styles = StyleSheet.create({
   tileText: { marginTop: 6, fontWeight: '600', color: colors.text },
   logout: { padding: 14, alignItems: 'center' },
   logoutText: { color: colors.danger, fontWeight: '700' },
-  error: { color: colors.danger, backgroundColor: colors.dangerBg, padding: 10, borderRadius: 8, marginBottom: 12 },
 });

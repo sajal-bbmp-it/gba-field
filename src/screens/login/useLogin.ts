@@ -16,8 +16,15 @@ export function useLogin() {
   const [info, setInfo] = useState('');
   const [busy, setBusy] = useState(false);
 
-  const onMobileChange = useCallback((t: string) => setMobile(digitsOnly(t)), []);
-  const onOtpChange = useCallback((t: string) => setOtp(digitsOnly(t)), []);
+  // Editing the field dismisses its error.
+  const onMobileChange = useCallback((t: string) => {
+    setMobile(digitsOnly(t));
+    setError('');
+  }, []);
+  const onOtpChange = useCallback((t: string) => {
+    setOtp(digitsOnly(t));
+    setError('');
+  }, []);
 
   const requestOtp = useCallback(async () => {
     setError('');

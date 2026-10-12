@@ -134,12 +134,6 @@ export const styles = StyleSheet.create({
   mt10: { marginTop: 10 },
   mt12: { marginTop: 12 },
   mb12: { marginBottom: 12 },
-  error: {
-    color: colors.danger,
-    backgroundColor: colors.dangerBg,
-    padding: 10,
-    borderRadius: 8,
-    marginTop: 10,
-    marginBottom: 4,
-  },
+  // Works screens sit the error banner a little closer to the content below it.
+  errorSpacing: { marginTop: 10, marginBottom: 4 },
 });
